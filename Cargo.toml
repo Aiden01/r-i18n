@@ -2,6 +2,12 @@
 name = "translator"
 version = "0.1.0"
 authors = ["Elian Gutierrez <eliangu3600103@gmail.com>"]
+exclude = ["/translations", "/tests"]
+description = "An i18n implementation in Rust. "
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/WebD-EG/i18n"
+homepage = "https://github.com/WebD-EG/i18n"
 
 [dependencies]
 json = "*"

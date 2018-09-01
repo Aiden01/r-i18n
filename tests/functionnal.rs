@@ -1,7 +1,7 @@
 
-extern crate i18n;
+extern crate r_i18n;
 
-use i18n::*;
+use r_i18n::*;
 
 fn create_config<'s>() -> I18nConfig<'s> {
     I18nConfig{locales: &["en", "fr"], directory: "translations"}

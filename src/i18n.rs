@@ -10,7 +10,7 @@ use json::JsonValue;
 
 /// I18n configuration
 /// # Example
-/// ```
+/// ```no-run
 /// extern crate i18n;
 /// use i18n::I18nConfig;
 ///

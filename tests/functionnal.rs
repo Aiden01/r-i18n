@@ -17,8 +17,8 @@ fn should_set_current_lang() {
     assert_eq!(i18n.current_lang, "en");
 }
 
-#[test]
 #[should_panic]
+#[test]
 fn should_panic_because_lang_not_registered() {
     let config: I18nConfig = create_config();
     let mut i18n: I18n = I18n::configure(&config);

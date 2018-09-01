@@ -1,0 +1,6 @@
+[package]
+name = "translator"
+version = "0.1.0"
+authors = ["Elian Gutierrez <eliangu3600103@gmail.com>"]
+
+[dependencies]

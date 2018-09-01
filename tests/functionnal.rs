@@ -1,7 +1,7 @@
 
-extern crate translator;
+extern crate i18n;
 
-use translator::*;
+use i18n::*;
 
 fn create_config<'s>() -> I18nConfig<'s> {
     I18nConfig{locales: &["en", "fr"], directory: "translations"}
@@ -14,6 +14,12 @@ fn should_set_current_lang() {
     let mut i18n: I18n = I18n::configure(&config);
     i18n
         .set_current_lang("en");
+    assert_eq!(i18n.current_lang, "en");
+}
+#[test]
+fn should_set_current_lang_by_default() {
+    let config: I18nConfig = create_config();
+    let i18n: I18n = I18n::configure(&config);
     assert_eq!(i18n.current_lang, "en");
 }
 

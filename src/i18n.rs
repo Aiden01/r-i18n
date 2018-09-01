@@ -34,7 +34,11 @@ impl<'b> I18n<'b> {
     /// Configures the library
     /// 
     /// # Example
-    /// ```
+    /// ```no-run
+    /// extern crate i18n;
+    /// use i18n::I18n;
+    /// use i18n::I18nConfig;
+    /// 
     /// fn main() {
     ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
     ///     let i18n: I18n = I18n::configure(&config);
@@ -59,10 +63,14 @@ impl<'b> I18n<'b> {
     /// Sets the current language
     /// 
     /// # Example
-    /// ```
+    /// ```no-run
+    /// extern crate i18n;
+    /// use i18n::I18n;
+    /// use i18n::I18nConfig;
+    /// 
     /// fn main() {
     ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-    ///     let i18n: I18n = I18n::configure(&config);
+    ///     let mut i18n: I18n = I18n::configure(&config);
     ///     i18n.set_current_lang("fr");
     /// }
     /// ```
@@ -90,10 +98,14 @@ impl<'b> I18n<'b> {
     /// Translates by the keyword
     /// 
     /// # Example
-    /// ```
+    /// ```no-run
+    /// extern crate i18n;
+    /// use i18n::I18n;
+    /// use i18n::I18nConfig;
+    /// 
     /// fn main() {
     ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-    ///     let i18n: I18n = I18n::configure(&config);
+    ///     let mut i18n: I18n = I18n::configure(&config);
     ///     i18n.set_current_lang("fr");
     ///     i18n.t("introduction"); // output should be "Bonjour, mon nom est WebD
     /// }

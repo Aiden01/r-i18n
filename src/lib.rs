@@ -28,16 +28,16 @@
 
 //! ### Configuration
 //! First, create the configuration with the directory that contains your translations files and your languages.
-//! ```rust
+//! ```no-run
 //! extern crate i18n;
 //! use i18n::I18nConfig;
 
 //! fn main() {
-//!     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
+//!     let config =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
 //! }
 //! ```
 //! Then, load the configuration:
-//! ```rust
+//! ```no-run
 //! extern crate i18n;
 //! use i18n::I18n;
 
@@ -62,9 +62,10 @@
 
 //! Then, in my main.rs
 
-//! ```rust
+//! ```no-run
 //! extern crate i18n;
 //! use i18n::I18n;
+//! use i18n::I18nConfig;
 
 //! fn main() {
 //!     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
@@ -83,7 +84,7 @@
 //! ```
 
 //! If I set the current language to french:
-//! ```rust
+//! ```no-run
 //! extern crate i18n;
 //! use i18n::I18n;
 

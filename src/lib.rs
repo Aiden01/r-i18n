@@ -1,14 +1,14 @@
 
-//! # i18n
+//! # r_i18n
 //! An i18n implementation in Rust. 
 
-//! [![Build Status](https://travis-ci.com/WebD-EG/i18n.svg?branch=master)](https://travis-ci.com/WebD-EG/i18n)
+//! [![Build Status](https://travis-ci.com/WebD-EG/r_i18n.svg?branch=master)](https://travis-ci.com/WebD-EG/r_i18n)
 
-//! > API documentation [https://crates.io/crates/i18n](https://crates.io/crates/i18n)
+//! > API documentation [https://crates.io/crates/r_i18n](https://crates.io/crates/r_i18n)
 
 //! **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-//! - [i18n](#i18n)
+//! - [r_i18n](#r_i18n)
 //!   - [Installation](#installation)
 //!   - [Usage](#usage)
 //!     - [Configuration](#configuration)
@@ -21,7 +21,7 @@
 //! To install the library, you have to put this line into your **Cargo.toml** file.
 //! ```toml
 //! [dependencies]
-//! i18n = "version number"
+//! r_i18n = "version number"
 //! ```
 
 //! ## Usage
@@ -29,8 +29,8 @@
 //! ### Configuration
 //! First, create the configuration with the directory that contains your translations files and your languages.
 //! ```no-run
-//! extern crate i18n;
-//! use i18n::I18nConfig;
+//! extern crate r_i18n;
+//! use r_i18n::I18nConfig;
 
 //! fn main() {
 //!     let config =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
@@ -38,12 +38,12 @@
 //! ```
 //! Then, load the configuration:
 //! ```no-run
-//! extern crate i18n;
-//! use i18n::I18n;
+//! extern crate r_i18n;
+//! use r_i18n::I18n;
 
 //! fn main() {
 //!     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-//!     let i18n: I18n = I18n::configure(&config);
+//!     let r_i18n: I18n = I18n::configure(&config);
 //! }
 //! ```
 //! With this example, you will need to have a **en.json**, **fr.json** and **es.json** inside the /translations directory. Each file should looks like that:
@@ -63,16 +63,16 @@
 //! Then, in my main.rs
 
 //! ```no-run
-//! extern crate i18n;
-//! use i18n::I18n;
-//! use i18n::I18nConfig;
+//! extern crate r_i18n;
+//! use r_i18n::I18n;
+//! use r_i18n::I18nConfig;
 
 //! fn main() {
 //!     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-//!     let i18n: I18n = I18n::configure(&config);
+//!     let r_i18n: I18n = I18n::configure(&config);
 //!     // by default, the current language will be the first element of the locales array. You can do like that if you want to set the language:
-//!     // i18n.set_current_lang("fr");
-//!     i18n.t("introduction"); // output should be "Hello, my name is WebD"
+//!     // r_i18n.set_current_lang("fr");
+//!     r_i18n.t("introduction"); // output should be "Hello, my name is WebD"
 //! }
 //! ```
 
@@ -85,14 +85,14 @@
 
 //! If I set the current language to french:
 //! ```no-run
-//! extern crate i18n;
-//! use i18n::I18n;
+//! extern crate r_i18n;
+//! use r_i18n::I18n;
 
 //! fn main() {
 //!     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-//!     let i18n: I18n = I18n::configure(&config);
-//!     i18n.set_current_lang("fr");
-//!     i18n.t("introduction"); // output should be "Bonjour, mon nom est WebD
+//!     let r_i18n: I18n = I18n::configure(&config);
+//!     r_i18n.set_current_lang("fr");
+//!     r_i18n.t("introduction"); // output should be "Bonjour, mon nom est WebD
 //! }
 //! ```
 

@@ -1,7 +1,7 @@
 # r_i18n
 An i18n implementation in Rust. 
 
-[![Build Status](https://travis-ci.com/WebD-EG/i18n.svg?branch=master)](https://travis-ci.com/WebD-EG/i18n)
+[![Build Status](https://travis-ci.com/WebD-EG/r-i18n.svg?branch=master)](https://travis-ci.com/WebD-EG/r-i18n)
 
 > API documentation [https://crates.io/crates/r_i18n](https://crates.io/crates/r_i18n)
 

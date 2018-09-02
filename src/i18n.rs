@@ -8,11 +8,11 @@ use std::collections::HashMap;
 
 use json::JsonValue;
 
-/// r_i18n configuration
+/// I18n configuration
 /// # Example
 /// ```no-run
-/// extern crate r_i18n;
-/// use r_i18n::I18nConfig;
+/// extern crate i18n;
+/// use i18n::I18nConfig;
 ///
 /// fn main() {
 ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
@@ -35,13 +35,13 @@ impl<'b> I18n<'b> {
     /// 
     /// # Example
     /// ```no-run
-    /// extern crate r_i18n;
-    /// use r_i18n::I18n;
-    /// use r_i18n::I18nConfig;
+    /// extern crate i18n;
+    /// use i18n::I18n;
+    /// use i18n::I18nConfig;
     /// 
     /// fn main() {
     ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-    ///     let r_i18n: I18n = I18n::configure(&config);
+    ///     let i18n: I18n = I18n::configure(&config);
     /// }
     /// ```
     pub fn configure(config: &'b I18nConfig<'b>) -> I18n<'b> {
@@ -60,20 +60,7 @@ impl<'b> I18n<'b> {
         }
     }  
 
-    /// Sets the current language
-    /// 
-    /// # Example
-    /// ```no-run
-    /// extern crate r_i18n;
-    /// use r_i18n::I18n;
-    /// use r_i18n::I18nConfig;
-    /// 
-    /// fn main() {
-    ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-    ///     let mut r_i18n: I18n = I18n::configure(&config);
-    ///     r_i18n.set_current_lang("fr");
-    /// }
-    /// ```
+
     pub fn set_current_lang(&mut self, lang: &'b str) {
         match self.config.locales.contains(&lang) {
             true => self.current_lang = lang,
@@ -99,15 +86,15 @@ impl<'b> I18n<'b> {
     /// 
     /// # Example
     /// ```no-run
-    /// extern crate r_i18n;
-    /// use r_i18n::I18n;
-    /// use r_i18n::I18nConfig;
+    /// extern crate i18n;
+    /// use i18n::I18n;
+    /// use i18n::I18nConfig;
     /// 
     /// fn main() {
     ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
-    ///     let mut r_i18n: I18n = I18n::configure(&config);
-    ///     r_i18n.set_current_lang("fr");
-    ///     r_i18n.t("introduction"); // output should be "Bonjour, mon nom est WebD
+    ///     let mut i18n: I18n = I18n::configure(&config);
+    ///     i18n.set_current_lang("fr");
+    ///     i18n.t("introduction"); // output should be "Bonjour, mon nom est WebD
     /// }
     /// ```
 

@@ -1,6 +1,6 @@
 [package]
 name = "r_i18n"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Elian Gutierrez <eliangu3600103@gmail.com>"]
 exclude = ["/translations", "/tests"]
 description = "An i18n implementation in Rust. "

@@ -118,7 +118,6 @@ impl<'b> I18n<'b> {
     ///     i18n.t("introduction"); // output should be "Bonjour, mon nom est WebD
     /// }
     /// ```
-
     pub fn t(&self, key: &'b str) -> &JsonValue {
         match self.translations.get(self.current_lang) {
             Some(language_json) => {

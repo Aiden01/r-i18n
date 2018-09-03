@@ -21,7 +21,7 @@ use json::JsonValue;
 pub struct I18nConfig<'a> {
     pub locales: &'a [&'a str],
     pub directory: &'a str
-} 
+}
 
 
 pub struct I18n<'b> {
@@ -32,13 +32,17 @@ pub struct I18n<'b> {
 
 impl<'b> I18n<'b> {
     /// Configures the library
-    /// 
+    ///
     /// # Example
     /// ```no-run
     /// extern crate i18n;
     /// use i18n::I18n;
     /// use i18n::I18nConfig;
     /// 
+    /// extern crate r_i18n;
+    /// use r_i18n::I18n;
+    /// use r_i18n::I18nConfig;
+    ///
     /// fn main() {
     ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
     ///     let i18n: I18n = I18n::configure(&config);
@@ -58,9 +62,23 @@ impl<'b> I18n<'b> {
         } else {
             panic!("You must add one language");
         }
-    }  
+    }
 
 
+    /// Sets the current language
+    ///
+    /// # Example
+    /// ```no-run
+    /// extern crate r_i18n;
+    /// use r_i18n::I18n;
+    /// use r_i18n::I18nConfig;
+    ///
+    /// fn main() {
+    ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
+    ///     let mut r_i18n: I18n = I18n::configure(&config);
+    ///     r_i18n.set_current_lang("fr");
+    /// }
+    /// ```
     pub fn set_current_lang(&mut self, lang: &'b str) {
         match self.config.locales.contains(&lang) {
             true => self.current_lang = lang,
@@ -76,20 +94,23 @@ impl<'b> I18n<'b> {
             let mut reader = BufReader::new(file);
             let mut contents = String::new();
             reader.read_to_string(&mut contents).expect("Failed to read the file");
-            println!("{:?}", contents);
             buffers.insert(filename.to_string(), contents);
         }
         buffers
     }
 
     /// Translates by the keyword
-    /// 
+    ///
     /// # Example
     /// ```no-run
     /// extern crate i18n;
     /// use i18n::I18n;
     /// use i18n::I18nConfig;
     /// 
+    /// extern crate r_i18n;
+    /// use r_i18n::I18n;
+    /// use r_i18n::I18nConfig;
+    ///
     /// fn main() {
     ///     let config: I18nConfig =  I18nConfig{locales: &["en", "fr", "es"], directory: "translations"};
     ///     let mut i18n: I18n = I18n::configure(&config);
@@ -99,11 +120,10 @@ impl<'b> I18n<'b> {
     /// ```
 
     pub fn t(&self, key: &'b str) -> &JsonValue {
-        println!("Translations: {:?}", self.translations);
         match self.translations.get(self.current_lang) {
             Some(language_json) => {
                 if language_json.has_key(key) {
-                    &language_json[key] 
+                    &language_json[key]
                 } else {
                     panic!("Unable to find the key {}", key);
                 }
